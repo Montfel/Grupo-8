@@ -1,11 +1,11 @@
 exports.up = function(knex) {
-    return knex.schema.createTable('Medico', table => {
+    return knex.schema.createTable('medico', table => {
         table.integer('crm').primary()
         table.integer('id_pessoa').references('id_pessoa')
-            .inTable('Pessoa').notNull()
+            .inTable('pessoa').notNull()
     })
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('Medico')
+    return knex.schema.dropTable('medico')
 };

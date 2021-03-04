@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('Pessoa', table => {
+    return knex.schema.createTable('pessoa', table => {
         table.increments('id_pessoa').primary()
         table.string('nome').notNull()
         table.string('senha').notNull()
@@ -9,5 +9,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('Pessoa')
+    return knex.schema.dropTable('pessoa')
 };

@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable('Exame', table => {
+    return knex.schema.createTable('exame', table => {
         table.increments('id').primary()
         table.date('data_solicitada').notNull()
         table.date('data_prevista')
@@ -10,16 +10,16 @@ exports.up = function(knex) {
         table.string('imagem')
         table.string('laudo')
         table.integer('crm').references('crm')
-            .inTable('Medico').notNull()
+            .inTable('medico').notNull()
         table.integer('cpf').references('cpf')
-            .inTable('Paciente').notNull()
+            .inTable('paciente').notNull()
         table.string('id_tipo_status').references('id_tipo_status')
-            .inTable('Tipo_Status').notNull()
+            .inTable('tipo_status').notNull()
         table.string('id_tipo_exame').references('id_tipo_exame')
-            .inTable('Tipo_Exame').notNull()
+            .inTable('tipo_exame').notNull()
     })
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('Exame')
+    return knex.schema.dropTable('exame')
 };
