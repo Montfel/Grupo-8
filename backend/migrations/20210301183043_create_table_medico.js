@@ -1,13 +1,11 @@
-const { table } = require("../config/db");
-
 exports.up = function(knex) {
-    return knex.schema.createTable('medicos', table => {
-        table.integer('CRM').primary().notNull()
-        table.string('Nome').notNull()
-        table.string('Senha').notNull()
+    return knex.schema.createTable('Medico', table => {
+        table.integer('crm').primary()
+        table.integer('id_pessoa').references('id_pessoa')
+            .inTable('Pessoa').notNull()
     })
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('medicos')
+    return knex.schema.dropTable('Medico')
 };
