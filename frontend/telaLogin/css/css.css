@@ -1,0 +1,16 @@
+#telaLogin{
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 5px 30px rgb(195, 195, 195);
+    border-radius: 40px;
+}
+#fundo{
+    /* background-color: rgb(243, 243, 243); */
+    background-image: url("../img/bgCardiologia.webp");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
