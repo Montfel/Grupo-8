@@ -1,0 +1,31 @@
+#fundo{
+    background-color: white;
+}
+#logo{
+    width: 60px;
+    height: 60px;
+}
+#navbar{
+    background-color: #79b0c9;
+
+}
+.card{
+    width: 25rem;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow: 1px 5px 30px rgb(195, 195, 195);
+}
+#button{
+    background-color: #F2465D;
+}
+.row {
+    margin: 0;
+}
+.container{
+    padding: 70px 0;
+}
+#rodape{
+    color: white;
+    text-align: center;
+    background-color: #79b0c9;
+}
