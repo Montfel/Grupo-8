@@ -21,7 +21,7 @@ module.exports = app => {
         const now = Math.floor(Date.now() / 1000)
 
         const playload = {
-            id: user.id_pessoa,
+            id_pessoa: user.id_pessoa,
             cpf: user.cpf,
             nome: user.nome,
             iat: now,
