@@ -2,8 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: sans-serif;
+    font-size: 0.9rem;
 }
+
+html, body{
+    width: 100vw;
+    height: 100vh;
+}
+
 #fundo{
     background-color: white;
 }
@@ -27,12 +34,12 @@
     background-color: #F2465D;
     color: white;
 }
-.row {
+/* .row {
     margin: 0;
 }
 .container{
     padding: 70px 0;
-}
+} */
 #rodape{
     position: fixed;
     bottom: 0px;
@@ -45,3 +52,9 @@
 #logindepaciente{
     font-weight: bolder;
 }
+/* 
+@media (max-width: 560px){
+    #rodape{
+        display: none;
+    }
+} */
