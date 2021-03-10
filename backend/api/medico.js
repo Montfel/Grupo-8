@@ -16,6 +16,7 @@ module.exports = app => {
             existsOrError(medico.cpf, 'CPF não informado!')
             existsOrError(medico.nome, 'Nome não informado!')
             existsOrError(medico.crm, 'CRM não informado!')
+            existsOrError(medico.tipo, 'Tipo de médico não informado!')
             existsOrError(medico.senha, 'Senha não informada!')
             existsOrError(medico.confirmacaoSenha, 'Confirmação de senha inválida!')
             equalsOrError(medico.senha, medico.confirmacaoSenha, 'Senhas não conferem!')
@@ -28,6 +29,9 @@ module.exports = app => {
         } catch (msg) {
             return res.status(400).send(msg)
         }
+        
+        // Temporario 
+        delete medico.tipo
 
         medico.senha = encriptarSenha(medico.senha)
         delete medico.confirmacaoSenha
