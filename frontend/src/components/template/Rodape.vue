@@ -32,11 +32,12 @@ export default {
     }
 
     .footer {
+
         width: 100%;
         height: 90px;
 
         background: #79b0c9;
-        position: absolute;
+        position: fixed;
         bottom: 0;
     }
 
