@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="select.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    
+
+    <title>UniCardio</title>
+
+  </head>
+
+  <body id="fundo">
+
+    <header>
+
+      <div class="container" id="nav-container">
+
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="navbar">
+
+          <a class="navbar-brand ml-5" href="#">
+            <img id="logo" src="img/logorodada.png" alt="Logotipo">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar-links">
+            
+            <ul class="navbar-nav mr-auto ml-auto">
+              
+              <li class="nav-item ml-4 mr-4">
+                <a class="nav-link" href="#">SERVIÇOS</a>
+              </li>
+              <li class="nav-item ml-4 mr-4">
+                <a class="nav-link" href="#">CORPO CLINICO</a>
+              </li>
+              <li class="nav-item ml-4 mr-4">
+                <a class="nav-link" href="#">PACIENTES</a>
+              </li>
+              <li class="nav-item ml-4 mr-4">
+                <a class="nav-link" href="#">UNIDADES DE SAÚDE</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </nav>
+
+      </div>
+
+    </header>
+    
+    <main>
+
+      <div class="card">
+
+        <h2 class="ml-auto mr-auto mt-3" id="logindepaciente">REGISTRO DO MÉDICO</h2>
+        <!-- <img class="" src="" alt="..."> -->
+        
+        <div class="card-body">
+
+          <form>
+
+            <div class="form-group">
+
+              <label for="InputName">Nome Completo</label>
+              <input type="text" class="form-control" id="InputName" aria-describedby="emailHelp" placeholder="Informe seu Nome Completo">
+            
+            </div>
+            <div class="form-group">
+
+              <label for="InputCrm">CPF</label>
+              <input type="text" class="form-control" id="InputCrm" aria-describedby="emailHelp" placeholder="Informe o CPF">
+            
+            </div>
+
+          <div class="form-group">
+
+            <label for="InputCrm">CRM</label>
+            <input type="text" class="form-control" id="InputCrm" aria-describedby="emailHelp" placeholder="Informe seu CRM">
+          
+          </div>
+          <div class="form-group">
+            <label for="InputSelection">Tipo de Médico:</label>
+            
+            
+            </div>
+
+            <select name="select" id="select">
+              <option value="div0">Selecione</option>
+              <option value="div1">Profissional</option>
+              <option value="div2">Professor</option>
+              <option value="div3">Residente</option>
+            </select>
+
+            <div id="pai">
+              <div id="div0"></div>
+
+              
+              <div id="div1"></div>
+
+              <div id="div2">
+                
+                <input type="text" class="form-control" id="InputCrm" aria-describedby="emailHelp" placeholder="Informe sua Titulação">
+              </div>
+
+              <div id="div3">
+                
+                <input type="text" class="form-control" id="InputCrm" aria-describedby="emailHelp" placeholder="Quantos anos de residencia fora concluidos">
+              </div>
+
+          </div>
+
+           
+
+
+          <div class="form-group">
+
+            <label for="InputPassword">Password</label>
+            <input type="password" class="form-control" id="InputPassword" placeholder="Insira sua senha">
+          
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-6">
+
+              
+
+            </div>
+
+            
+
+          </div>
+
+          <button type="submit" class="btn rounded-pill btn-block" id="button">Registrar</button>
+
+
+    </main>
+
+    <footer class="page-footer font-small" id="rodape">
+        <div class="row">
+          <div class="col-8 mt-2">
+            <h5>Termos de uso e política de privacidade</h5>
+            <p>Copyright © 2021 Clínica Cardiológica UniCardio. Todos os direitos reservados.</p>
+          </div>
+      
+          <div class="col-2">
+            <p>Av. Mario Jorge Menezes Viêira,
+              2477 - Coroa do Meio, Aracaju - SE,
+              49035-100</p>
+          </div>
+          <div class="col-2">
+            <a class="" href="#"><img id="logo" src="img/logorodada.png" alt="Logotipo"></a>
+          </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
