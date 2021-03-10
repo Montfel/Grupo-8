@@ -1,5 +1,5 @@
 <template>
-    <div class="register">
+    <div class="register" id="medico">
         <div class="register-modal">
             <div class="register-title">
                 <h2> Registro do Médico </h2>
@@ -87,7 +87,7 @@ export default {
     }
 
     .register-modal {
-        width: 350px;
+        width: 400px;
         padding: 30px; 
         box-shadow: 1px 5px 30px rgb(195, 195, 195);
     }

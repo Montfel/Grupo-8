@@ -1,12 +1,13 @@
 <template>
     <div id="app">
-        <Menu />
+        <Menu :login="user"/>
         <Conteudo />
         <Rodape />
     </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Menu from "@/components/template/Menu"
 import Rodape from "@/components/template/Rodape"
 import Conteudo from "@/components/template/Conteudo"
@@ -16,6 +17,7 @@ import axios from 'axios'
 export default {
     name: "App",
     components: {Menu, Rodape, Conteudo},
+    computed: mapState(['user']),
     data: function() {
         return {
             validandoToken: true
@@ -31,7 +33,7 @@ export default {
 
             if (!userData) {
                 this.validatingToken = false
-                return this.$router.push({ name: 'auth' })
+                return this.$router.push({ name: 'Autenticacao' })
             }
 
             const res = await axios.post(`${baseApiUrl}/validateToken`, userData)
@@ -40,7 +42,7 @@ export default {
                 this.$store.commit('setUser', userData)
             } else {
                 localStorage.removeItem(userKey)
-                this.$router.push({ name: 'auth' })
+                this.$router.push({ name: 'Autenticacao' })
             }
 
             this.validatingToken = false
