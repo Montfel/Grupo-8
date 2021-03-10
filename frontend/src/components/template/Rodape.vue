@@ -32,13 +32,10 @@ export default {
     }
 
     .footer {
-
         width: 100%;
         height: 90px;
 
         background: #79b0c9;
-        position: fixed;
-        bottom: 0;
     }
 
     .conteudo {
@@ -46,7 +43,7 @@ export default {
         justify-content: left;
         align-items: center;
 
-        padding: 15px;
+        padding-top: 20px;
     }
 
     #conteudo-1 {

@@ -25,21 +25,34 @@
                 Lembrar login
             </b-form-checkbox>
 
-            <b-button pill block variant="danger" @click="signin" class="btn-login">Entrar</b-button>
+            <b-button pill block variant="danger" @click="login()" class="btn-login">Entrar</b-button>
             <router-link to="/" id="registro"> Registre-se! </router-link>
         </div>
-
-
     </div>
 </template>
 
 <script>
+import { baseApiUrl , showError, userKey} from '@/global.js'
+import axios from 'axios'
+
 export default {
     name: 'Autenticacao',
     data: function() {
         return {
             status: "false",
             user: {}
+        }
+    },
+    methods: {
+
+        login() {
+            axios.post(`${baseApiUrl}/signin`, this.user)
+                .then(res => {
+                    this.$store.commit('setUser', res.data)
+                    localStorage.setItem(userKey, JSON.stringify(res.data))
+                    this.$router.push({ path: '/' })
+                })
+                .catch(showError)
         }
     }
 }

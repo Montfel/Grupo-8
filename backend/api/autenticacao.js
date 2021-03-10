@@ -24,6 +24,7 @@ module.exports = app => {
             id_pessoa: user.id_pessoa,
             cpf: user.cpf,
             nome: user.nome,
+            adm: user.adm,
             iat: now,
             exp: now + (60 * 60 * 24 * 3)
         }
