@@ -6,12 +6,12 @@
             </div>
 
             <label for="input-cpf">CPF:</label>
-            <b-input id="input-cpf" placeholder="Informe seu CPF"></b-input>
+            <b-input v-model="user.cpf" id="input-cpf" placeholder="Informe seu CPF"></b-input>
 
             <br>
 
             <label for="input-senha">Senha:</label>
-            <b-input id="input-senha" placeholder="Insira sua senha" type="password"></b-input>
+            <b-input v-model="user.senha" id="input-senha" placeholder="Insira sua senha" type="password"></b-input>
 
             <br>
 
@@ -38,7 +38,8 @@ export default {
     name: 'Autenticacao',
     data: function() {
         return {
-            status: "false"
+            status: "false",
+            user: {}
         }
     }
 }
@@ -46,12 +47,6 @@ export default {
 
 <style>
     .auth {
-        /* width: 25rem;
-        top: 50%;
-        left: 50%;
-        position: absolute;
-        transform: translate(-50%,-50%);
-        box-shadow: 1px 5px 30px rgb(195, 195, 195); */
         height: 100%;
         display: flex;
         justify-content: center;
