@@ -7,5 +7,8 @@ module.exports = app => {
 
     app.route('/paciente')
         .post(app.api.paciente.salvar)
+
+    app.route('/pessoa')
+        .post(app.api.pessoa.salvar)
         
 }
