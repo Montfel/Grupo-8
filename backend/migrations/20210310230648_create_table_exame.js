@@ -9,7 +9,7 @@ exports.up = function(knex) {
         table.string('recomendacoes')
         table.string('imagem')
         table.string('laudo')
-        table.integer('crm').references('crm')
+        table.string('crm').references('crm')
             .inTable('medico').notNull()
         table.integer('id_paciente').references('id_paciente')
             .inTable('paciente').notNull()
