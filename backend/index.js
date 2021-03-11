@@ -7,6 +7,8 @@ app.db = db
 consign()
     .then('./config/middlewares.js')
     .then('./api/validacao.js')
+    .then('./classes/pessoa.js')
+    .then('./classes/medico.js')
     .then('./api')
     .then('./config/rotas.js')
     .into(app)
