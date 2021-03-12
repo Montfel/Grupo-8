@@ -4,6 +4,9 @@ module.exports = app => {
     const { existsOrError, notExistsOrError, equalsOrError } = app.api.validacao
     const { Pessoa } = app.classes.pessoa
     const { Medico } = app.classes.medico
+    const { Residente } = app.classes.residente
+    const { Paciente } = app.classes.paciente
+    const { Professor } = app.classes.professor
 
     const encriptarSenha = senha => {
         const salt = bcrypt.genSaltSync(10)
@@ -24,7 +27,7 @@ module.exports = app => {
             equalsOrError(usuario.senha, usuario.confirmacaoSenha, "Senhas não conferem!")
 
             if (isMedico(usuario.tipo_registro)) {
-                validaMedico(usuario, res)
+                await validaMedico(usuario, res)
             }
 
             if (isPaciente(usuario.tipo_registro)) {
@@ -49,19 +52,30 @@ module.exports = app => {
             if (isResidente(usuario.tipo_medico)) {
                 delete usuario.tipo_medico
 
+                const residente = new Residente(usuario.cpf, usuario.nome, usuario.senha, usuario.crm, usuario.ano_residencia)
+                residente.salvarDados()
+
             } else if (isProfessor(usuario.tipo_medico)) {
                 delete usuario.tipo_medico
+
+                const professor = new Professor(usuario.cpf, usuario.nome, usuario.senha, usuario.crm, usuario.titulacao)
+                professor.salvarDados()
 
             } else {
                 delete usuario.tipo_medico
 
                 const medico = new Medico(usuario.cpf, usuario.nome, usuario.senha, usuario.crm)
-                medico.salvarDados()
-
-                res.status(204).send()
+                medico.salvarDados() 
             }
-
         }
+        else if (isPaciente(usuario.tipo_registro)){
+            delete usuario.tipo_registro
+
+            const paciente = new Paciente(usuario.cpf, usuario.nome, usuario.senha, usuario.cor, usuario.sexo, usuario.data_nascimento)
+            paciente.salvarDados() 
+        }
+
+        res.status(204).send()
     }
 
 
@@ -76,13 +90,13 @@ module.exports = app => {
     // ----------- Funções ---------------
 
     function isMedico(tipo) {
-        if (tipo === 'Medico') {
+        if (tipo === 'medico') {
             return true
         }
         return false
     }
 
-    function validaMedico(dados, res) {
+    async function validaMedico(dados, res) {
         try {
             existsOrError(dados.crm, "CRM não informado!")
                 
@@ -92,27 +106,34 @@ module.exports = app => {
             } else if (isProfessor(dados.tipo_medico)) {
                 existsOrError(dados.titulacao, "Titulação não informada!")  
             }
+
+            const medicosFromDB = await app.db('medico')
+                .where({crm: dados.crm})
+                .first()
+
+            notExistsOrError(medicosFromDB, "Médico já cadastrado!")
+
         } catch (msg) {
             return res.status(400).send(msg)
         }
     }
 
     function isResidente(tipo) {
-        if (tipo === 'Residente') {
+        if (tipo === 'residente') {
             return true
         }
         return false
     }
 
     function isProfessor(tipo) {
-        if (tipo === 'Professor') {
+        if (tipo === 'professor') {
             return true
         }
         return false
     }
 
     function isPaciente(tipo) {
-        if (tipo === 'Paciente') {
+        if (tipo === 'paciente') {
             return true
         }
         return false
