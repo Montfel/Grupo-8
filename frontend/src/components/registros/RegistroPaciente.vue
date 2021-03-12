@@ -10,7 +10,8 @@
             <br>
 
             <label for="input-cpf">CPF:</label>
-            <b-input v-model="paciente.cpf" id="input-cpf" placeholder="Informe seu CPF"></b-input>
+            <b-input v-model="paciente.cpf" id="input-cpf" placeholder="Informe seu CPF"
+            type="number" min="0"></b-input>
             <br>
 
             <label for="input-cor">Cor:</label>
@@ -48,11 +49,14 @@ export default {
     data: function() {
         return {
             paciente: {},
+            tipo_registro: 'paciente'
         }
     },
     methods: {
         registrar_paciente() {
-            const url = `${baseApiUrl}/paciente`
+            this.paciente.tipo_registro = this.tipo_registro
+
+            const url = `${baseApiUrl}/usuario`
             axios.post(url, this.paciente)
                 .then(() => {
                     this.$toasted.global.defaultSuccess()
