@@ -1,6 +1,6 @@
 module.exports = app => {
 
-    const {Medico} = app.classes.Medico
+    const {Medico} = app.classes.medico
 
     class Residente extends Medico{
 
@@ -10,7 +10,7 @@ module.exports = app => {
         }
 
         async salvarDados(){
-            super.salvarDados()
+            await super.salvarDados()
             await app.db('residente').insert(await this.getDadosResidente())
         }
 
@@ -26,7 +26,7 @@ module.exports = app => {
         async get_CRM(){
             const medicoFromDB = await app.db('medico')
                 .select('crm')
-                .where({cpf: this.cpf})
+                .where({crm: this.crm})
                 .first()
 
             return medicoFromDB.crm
