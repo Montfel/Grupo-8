@@ -10,5 +10,7 @@ module.exports = app => {
 
     app.route('/pessoa')
         .post(app.api.pessoa.salvar)
-        
+
+    app.route('/usuario')
+        .post(app.api.usuario.salvar) 
 }
