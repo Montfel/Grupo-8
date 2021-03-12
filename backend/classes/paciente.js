@@ -11,7 +11,7 @@ module.exports = app => {
         }
 
         async get_id_pessoa(){
-            const pessoaFromDB = app.db('pessoa')
+            const pessoaFromDB = await app.db('pessoa')
                 .select('id_pessoa')
                 .where({cpf: this.cpf})
                 .first()
@@ -23,15 +23,15 @@ module.exports = app => {
             const pessoa = {
                 cor: this.cor,
                 sexo: this.sexo,
-                data_nascimento = this.data_nascimento,
-                id_pessoa = await this.get_id_pessoa()
+                data_nascimento: this.data_nascimento,
+                id_pessoa: await this.get_id_pessoa()
             }
 
             return pessoa
         }
 
         async salvarDados(){
-            super.salvarDados()
+            await super.salvarDados()
             await app.db('paciente').insert(await this.getDadosPaciente())
         }
     }
