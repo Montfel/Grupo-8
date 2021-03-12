@@ -1,4 +1,4 @@
-modulo.exports = app => {
+module.exports = app => {
     const {Medico} = app.classes.medico
 
     class Professor extends Medico{
@@ -11,10 +11,10 @@ modulo.exports = app => {
         async get_crm(){
             const medicoFromDB = await app.db('medico')
                 .select('crm')
-                .where({cpf: this.cpf})
+                .where({crm: this.crm})
                 .first()
             
-            return medicoFromDB.cr
+            return medicoFromDB.crm
         }
 
         async getDadosProfessor(){
@@ -27,7 +27,7 @@ modulo.exports = app => {
         }
 
         async salvarDados(){
-            super.salvarDados()
+            await super.salvarDados()
             await app.db('professor').insert(await this.getDadosProfessor())
         }
     }
