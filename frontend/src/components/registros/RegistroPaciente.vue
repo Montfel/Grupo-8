@@ -54,9 +54,9 @@ export default {
     },
     methods: {
         registrar_paciente() {
-            this.paciente.tipo_registro = this.tipo_registro
+            // this.paciente.tipo_registro = this.tipo_registro
 
-            const url = `${baseApiUrl}/usuario`
+            const url = `${baseApiUrl}/registro/${this.tipo_registro}`
             axios.post(url, this.paciente)
                 .then(() => {
                     this.$toasted.global.defaultSuccess()

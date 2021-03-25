@@ -36,6 +36,10 @@ module.exports = app => {
         
         usuario.senha = encriptarSenha(usuario.senha)
         delete usuario.confirmacaoSenha 
+        
+        if(!isUsuario(req.params.tipo)) {
+            delete usuario.adm
+        }
 
         req.body = usuario
 
@@ -47,7 +51,7 @@ module.exports = app => {
 
         } else if (isUsuario(req.params.tipo)) {
 
-            const usuario_ = new Pessoa(usuario.cpf, usuario.nome, usuario.senha)
+            const usuario_ = new Pessoa(usuario.cpf, usuario.nome, usuario.senha, usuario.adm)
 
             usuario_.salvarDados()
 

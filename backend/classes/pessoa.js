@@ -1,10 +1,11 @@
 module.exports = app => {
     class Pessoa {
         
-        constructor(cpf, nome, senha) {
+        constructor(cpf, nome, senha, adm) {
             this.cpf = cpf
             this.nome = nome
             this.senha = senha
+            this.adm = adm
         }
         
         async salvarDados() {
@@ -15,7 +16,8 @@ module.exports = app => {
             const usuario = {
                 cpf: this.cpf,
                 nome: this.nome,
-                senha: this.senha
+                senha: this.senha,
+                adm: this.adm
             }
 
             return usuario
