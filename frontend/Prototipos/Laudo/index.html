@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" class="h-100">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,7 +9,7 @@
     <title>UniCardio</title>
   </head>
 
-  <body>
+  <body class="d-flex flex-column h-100">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
         <a class="navbar-brand ml-5" href="#">
@@ -38,7 +38,6 @@
     </header>
     
     <main>
-      <div class="bd-masthead mb-3">
       <div class="container py-5">
         <div class="row">
           <div class="col-md-3"></div>
@@ -47,39 +46,38 @@
               <h2>Laudo</h2>
             </div>
             <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label for="InputCRM">CRM</label>
-                <input type="text" class="form-control" id="InputCRM" placeholder="Informe seu CRM">
-              </div>
-              <div class="form-group">
-                <label for="InputCPF">CPF do paciente</label>
-                <input type="text" class="form-control" id="InputCPF" placeholder="Insira o CPF do paciente">
-              </div>
-              <div class="form-group">
-                <label for="InputDate">Data do exame</label>
-                <input type="date" class="form-control" id="InputDate">
-              </div> 
-              <div class="form-group">
-                <label for="InputLaudo">Laudo</label>
-                <textarea class="form-control" id="InputLaudo" placeholder="Informe o laudo do paciente" rows="3"></textarea>
-              </div>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile" lang="es">
-                <label class="custom-file-label" for="customFile">Anexe o PDF</label>
-              </div>
-              <br><br>
-              <button type="submit" class="btn rounded-pill btn-block text-light" id="button">ENVIAR</button>
-            </form>
+              <form>
+                <div class="form-group">
+                  <label for="InputCRM">CRM</label>
+                  <input type="text" class="form-control" id="InputCRM" placeholder="Informe seu CRM">
+                </div>
+                <div class="form-group">
+                  <label for="InputCPF">CPF do paciente</label>
+                  <input type="text" class="form-control" id="InputCPF" placeholder="Insira o CPF do paciente">
+                </div>
+                <div class="form-group">
+                  <label for="InputDate">Data do exame</label>
+                  <input type="date" class="form-control" id="InputDate">
+                </div> 
+                <div class="form-group">
+                  <label for="InputLaudo">Laudo</label>
+                  <textarea class="form-control" id="InputLaudo" placeholder="Informe o laudo do paciente" rows="3"></textarea>
+                </div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="customFile" lang="es">
+                  <label class="custom-file-label" for="customFile">Anexe o PDF</label>
+                </div>
+                <br><br>
+                <button type="submit" class="btn rounded-pill btn-block text-light" id="button">ENVIAR</button>
+              </form>
+            </div>
           </div>
-          </div>
+          <div class="col-md-3"></div>
         </div>
-        <div class="col-md-3"></div>
       </div>
-    </div>
     </main>
 
-    <footer class="text-light py-2">
+    <footer class="footer text-light mt-auto py-2">
       <div class="container">
         <div class="row">
           <div class="col-md-7">
@@ -88,11 +86,11 @@
           </div>
       
           <div class="col-md-4">
-            <p class="mb-0">Av. Mario Jorge Menezes Viêira, 2477</p>
-            <p class="mb-0">Coroa do Meio, Aracaju - SE, 49035-100</p> 
+            <p class="mb-0 text-center">Av. Mario Jorge Menezes Viêira, 2477</p>
+            <p class="mb-0 text-center">Coroa do Meio, Aracaju - SE, 49035-100</p> 
           </div>
           <div class="col-md-1">
-            <a href="#"><img id="logo" src="img/logorodada.png" alt="Logotipo"></a>
+            <a href="#"><img class="d-flex justify-content-center" id="logo" src="img/logorodada.png" alt="Logotipo"></a>
           </div>
         </div>
       </div>
