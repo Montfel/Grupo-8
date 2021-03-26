@@ -1,0 +1,15 @@
+#logo{
+    width: 60px;
+    height: 60px;
+}
+#navbar, footer{
+    background-color: #79b0c9;
+}
+
+#button{
+    background-color: #F2465D;
+}
+
+textarea{
+    resize: none;
+}
