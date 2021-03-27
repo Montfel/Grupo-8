@@ -80,7 +80,12 @@ module.exports = app => {
         }
 
     }
-
+    
+    const listar = (req, res) => {
+        app.db('pessoa')
+            .then(usuarios => res.json(usuarios))
+            .catch(err => res.status(500).send(err))
+    }
 
 
     // ----------- Funções ---------------
@@ -107,5 +112,5 @@ module.exports = app => {
     }
     
 
-    return { salvar, remover }
+    return { salvar, remover, listar}
 }

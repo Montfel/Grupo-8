@@ -2,7 +2,7 @@ module.exports = app => {
     const { existsOrError, notExistsOrError } = app.api.validacao
 
     const { Medico } = app.classes.medico
-    const { salvarResidente, removerResidente } = app.api.residente
+    const { salvarResidente, removerResidente, listarResidente } = app.api.residente
     const { salvarProfessor, removerProfessor } = app.api.professor
 
     const salvarMedico = async(req, res) => {
@@ -73,6 +73,21 @@ module.exports = app => {
         }
     }
 
+    const listarMedicos = (req, res) => {
+        if (isResidente(req.params.tipo)) {
+            listarResidente(req, res)
+
+        } else if (isProfessor(req.params.tipo)) {
+            // listar
+
+        } else if (isProfissional(req.params.tipo)) {
+            app.db('medico')
+                .then(medicos => res.json(medicos))
+                .catch(err => res.status(500).send(err))
+        }
+
+    }
+
     // -------- Funções ----------------
 
     function isResidente(tipo) {
@@ -97,5 +112,5 @@ module.exports = app => {
     }
 
 
-    return { salvarMedico, removerMedico }
+    return { salvarMedico, removerMedico, listarMedicos }
 }

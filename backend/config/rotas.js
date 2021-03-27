@@ -7,4 +7,12 @@ module.exports = app => {
 
     app.route('/pessoa/:tipo/:id_pessoa')
         .delete(app.api.usuario.remover)
+
+    app.route('/usuarios')
+        .get(app.api.usuario.listar)
+
+    app.route('/medicos/:tipo')
+        .get(app.api.medico.listarMedicos)
+
+    
 }

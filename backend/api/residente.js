@@ -32,6 +32,12 @@ module.exports = app => {
         }
     }
 
-    return { salvarResidente, removerResidente }
+    const listarResidente = (req, res) => {
+        app.db('residente')
+            .then(residente => res.json(residente))
+            .catch(err => res.status(500).send(err))
+    }
+
+    return { salvarResidente, removerResidente, listarResidente }
 
 }
