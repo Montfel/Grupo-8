@@ -87,6 +87,29 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
+    const atualizar = (req, res) => {
+        const usuario = { ...req.body}
+
+        if (usuario.senha) {
+            try {
+                existsOrError(usuario.confirmacaoSenha, "Confirmação de senha não informada!")
+                equalsOrError(usuario.senha, usuario.confirmacaoSenha, "Senhas não conferem!")
+                
+            } catch (msg) {
+                return res.status(400).send(msg)
+            }
+
+            usuario.senha = encriptarSenha(usuario.senha)
+            delete usuario.confirmacaoSenha
+        }
+
+        app.db('pessoa')
+            .update(usuario)
+            .where({id_pessoa: req.params.id_pessoa})
+            .then(_=> res.status(204).send())
+            .catch(err => res.status(500).send(err))
+    }
+
 
     // ----------- Funções ---------------
 
@@ -112,5 +135,5 @@ module.exports = app => {
     }
     
 
-    return { salvar, remover, listar}
+    return { salvar, remover, listar, atualizar }
 }

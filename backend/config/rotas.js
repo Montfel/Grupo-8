@@ -8,6 +8,9 @@ module.exports = app => {
     app.route('/pessoa/:tipo/:id_pessoa')
         .delete(app.api.usuario.remover)
 
+    app.route('/usuario/:id_pessoa')
+        .put(app.api.usuario.atualizar)
+
     app.route('/usuarios')
         .get(app.api.usuario.listar)
 
