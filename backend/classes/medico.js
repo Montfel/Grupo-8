@@ -62,6 +62,19 @@ module.exports = app => {
                 return true
             }
         }
+
+        async isProfessor(crm) {
+
+            const crmInProfessor = await app.db('professor')
+                .where({crm: crm})
+                .first()
+            
+            if (!crmInProfessor) {
+                return false
+            } else {
+                return true
+            }
+        }
     }
 
 
