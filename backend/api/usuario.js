@@ -70,9 +70,7 @@ module.exports = app => {
 
             } else if (isUsuario(req.params.tipo)) {
                 const usuario_ = new Pessoa()
-
-                usuario_.setIdPessoa(req.params.id_pessoa)
-                usuario_.remover()
+                usuario_.remover(req.params.id_pessoa)
 
                 res.status(204).send()
             }

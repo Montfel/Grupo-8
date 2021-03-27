@@ -3,7 +3,6 @@ module.exports = app => {
     const { existsOrError } = app.api.validacao
 
     class Medico extends Pessoa {
-        idPessoa = 0
 
         constructor(cpf, nome, senha, crm){
             super(cpf, nome, senha)
@@ -15,13 +14,13 @@ module.exports = app => {
             await app.db('medico').insert(await this.getDadosMedico())
         }
 
-        async remover() {
+        async remover(idPessoa) {
             const rowsDeleted = await app.db('medico')
-                .where({ id_pessoa: this.idPessoa}).del()
+                .where({ id_pessoa: idPessoa}).del()
 
             existsOrError(rowsDeleted, 'Médico não encontrado!')
 
-            await super.remover()
+            await super.remover(idPessoa)
 
         }
 
@@ -43,8 +42,25 @@ module.exports = app => {
             return pessoaFromDB.id_pessoa
         }
 
-        setIdPessoa(id) {
-            this.idPessoa = id
+        async getCRM(idPessoa) {
+            const medico = await app.db('medico')
+                .where({id_pessoa: idPessoa})
+                .first()
+                .select('crm')
+
+            return medico.crm
+        }
+
+        async isResidente(crm) {
+            const crmInResidente = await app.db('residente')
+                .where({crm: crm})
+                .first()
+            
+            if (!crmInResidente) {
+                return false
+            } else {
+                return true
+            }
         }
     }
 

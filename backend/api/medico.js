@@ -2,7 +2,7 @@ module.exports = app => {
     const { existsOrError, notExistsOrError } = app.api.validacao
 
     const { Medico } = app.classes.medico
-    const { salvarResidente } = app.api.residente
+    const { salvarResidente, removerResidente } = app.api.residente
     const { salvarProfessor } = app.api.professor
 
     const salvarMedico = async(req, res) => {
@@ -51,21 +51,27 @@ module.exports = app => {
 
     const removerMedico = async(req, res) => {
         try {
-            // existsOrError(req.params.crm)
             const medico_ = new Medico()
-            medico_.setIdPessoa(req.params.id_pessoa)
 
-            medico_.remover()
+            const crm = await medico_.getCRM(req.params.id_pessoa)
 
-            res.status(204).send()
+            if (await medico_.isResidente(crm)) {
+                removerResidente(req, res)
+    
+            } else if (isProfessor(req.param.tipo)) {
+                // Salvar professor
+
+            } else if (isProfissional(req.param.tipo)){
+                medico_.remover(req.params.id_pessoa)
+    
+                res.status(204).send()
+            }
 
         } catch (msg) {
-            res.status(400).send('Não foi remover medico!')
+            res.status(400).send('Não foi possível remover medico!')
 
         }
     }
-
-
 
     // -------- Funções ----------------
 
@@ -89,6 +95,7 @@ module.exports = app => {
         }
         return false
     }
+
 
     return { salvarMedico, removerMedico }
 }

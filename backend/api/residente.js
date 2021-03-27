@@ -20,6 +20,18 @@ module.exports = app => {
         res.status(204).send()
     }
 
-    return { salvarResidente }
+    const removerResidente = async (req, res) => {
+        try {
+            const residente_ = new Residente()
+            residente_.remover(req.params.id_pessoa)
+
+            res.status(204).send()
+
+        } catch (msg) {
+            res.status(400).send('Não foi possível remover residente!')
+        }
+    }
+
+    return { salvarResidente, removerResidente }
 
 }

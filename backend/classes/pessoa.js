@@ -2,8 +2,7 @@ module.exports = app => {
     const { existsOrError } = app.api.validacao
 
     class Pessoa {
-        idPessoa = 0
-
+        
         constructor(cpf, nome, senha, adm) {
             this.cpf = cpf
             this.nome = nome
@@ -15,11 +14,11 @@ module.exports = app => {
             await app.db('pessoa').insert(this.getDadosPessoa())
         }
 
-        async remover() {
-            existsOrError(this.idPessoa, "Código do usuário não informado!")
+        async remover(idPessoa) {
+            existsOrError(idPessoa, "Código do usuário não informado!")
 
             const rowsDeleted = await app.db('pessoa')
-                .where({ id_pessoa: this.idPessoa}).del()
+                .where({ id_pessoa: idPessoa}).del()
 
             existsOrError(rowsDeleted, 'Usuário não encontrado!')
 
@@ -35,11 +34,6 @@ module.exports = app => {
 
             return usuario
         }
-
-        setIdPessoa(id) {
-            this.idPessoa = id
-        }
-
     }
 
     return { Pessoa }
