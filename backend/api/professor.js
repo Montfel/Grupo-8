@@ -32,6 +32,12 @@ module.exports = app => {
         }
     }
 
-    return { salvarProfessor, removerProfessor }
+    const listarProfessor = (req, res) => {
+        app.db('professor')
+            .then(professor => res.json(professor))
+            .catch(err => res.status(500).send(err))
+    }
+
+    return { salvarProfessor, removerProfessor, listarProfessor }
 
 }

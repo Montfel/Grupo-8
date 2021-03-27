@@ -3,7 +3,7 @@ module.exports = {
     connection: {
       database: 'unicardiodb',
       user:     'postgres',
-      password: 'admin'
+      password: '123456'
     },
     pool: {
       min: 2,

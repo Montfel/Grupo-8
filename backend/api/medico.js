@@ -3,7 +3,7 @@ module.exports = app => {
 
     const { Medico } = app.classes.medico
     const { salvarResidente, removerResidente, listarResidente } = app.api.residente
-    const { salvarProfessor, removerProfessor } = app.api.professor
+    const { salvarProfessor, removerProfessor, listarProfessor } = app.api.professor
 
     const salvarMedico = async(req, res) => {
 
@@ -78,7 +78,7 @@ module.exports = app => {
             listarResidente(req, res)
 
         } else if (isProfessor(req.params.tipo)) {
-            // listar
+            listarProfessor(req, res)
 
         } else if (isProfissional(req.params.tipo)) {
             app.db('medico')
