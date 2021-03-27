@@ -49,6 +49,21 @@ module.exports = app => {
 
     }
 
+    const removerMedico = async(req, res) => {
+        try {
+            // existsOrError(req.params.crm)
+            const medico_ = new Medico()
+            medico_.setIdPessoa(req.params.id_pessoa)
+
+            medico_.remover()
+
+            res.status(204).send()
+
+        } catch (msg) {
+            res.status(400).send('Não foi remover medico!')
+
+        }
+    }
 
 
 
@@ -75,5 +90,5 @@ module.exports = app => {
         return false
     }
 
-    return { salvarMedico }
+    return { salvarMedico, removerMedico }
 }

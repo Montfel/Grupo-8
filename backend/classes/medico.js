@@ -1,7 +1,9 @@
 module.exports = app => {
     const { Pessoa } = app.classes.pessoa
+    const { existsOrError } = app.api.validacao
 
     class Medico extends Pessoa {
+        idPessoa = 0
 
         constructor(cpf, nome, senha, crm){
             super(cpf, nome, senha)
@@ -11,6 +13,16 @@ module.exports = app => {
         async salvarDados() {
             await super.salvarDados()
             await app.db('medico').insert(await this.getDadosMedico())
+        }
+
+        async remover() {
+            const rowsDeleted = await app.db('medico')
+                .where({ id_pessoa: this.idPessoa}).del()
+
+            existsOrError(rowsDeleted, 'Médico não encontrado!')
+
+            await super.remover()
+
         }
 
         async getDadosMedico() {
@@ -31,7 +43,11 @@ module.exports = app => {
             return pessoaFromDB.id_pessoa
         }
 
+        setIdPessoa(id) {
+            this.idPessoa = id
+        }
     }
+
 
     return { Medico }
 }
