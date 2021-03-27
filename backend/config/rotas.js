@@ -4,4 +4,7 @@ module.exports = app => {
 
     app.route('/registro/:tipo')
         .post(app.api.usuario.salvar) 
+
+    app.route('/pessoa/:tipo/:id_pessoa')
+        .delete(app.api.usuario.remover)
 }

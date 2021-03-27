@@ -4,7 +4,7 @@ module.exports = app => {
     const { existsOrError, notExistsOrError, equalsOrError } = app.api.validacao
 
     const { Pessoa } = app.classes.pessoa
-    const { salvarMedico } = app.api.medico
+    const { salvarMedico, removerMedico } = app.api.medico
     const { salvarPaciente } = app.api.paciente
 
     const encriptarSenha = senha => {
@@ -59,6 +59,30 @@ module.exports = app => {
         }
     }
 
+    const remover = async(req, res) => {
+
+        try {
+            if (isMedico(req.params.tipo)) {
+                removerMedico(req, res)
+
+            } else if (isPaciente(req.params.tipo)) {
+                // remover paciente
+
+            } else if (isUsuario(req.params.tipo)) {
+                const usuario_ = new Pessoa()
+
+                usuario_.setIdPessoa(req.params.id_pessoa)
+                usuario_.remover()
+
+                res.status(204).send()
+            }
+
+        } catch (msg) {
+            res.status(400).send(msg)
+        }
+
+    }
+
 
 
     // ----------- Funções ---------------
@@ -85,5 +109,5 @@ module.exports = app => {
     }
     
 
-    return { salvar }
+    return { salvar, remover }
 }
