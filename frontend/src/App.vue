@@ -2,21 +2,19 @@
     <div id="app">
         <Menu :login="user"/>
         <Conteudo />
-        <Rodape />
     </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import Menu from "@/components/template/Menu"
-import Rodape from "@/components/template/Rodape"
 import Conteudo from "@/components/template/Conteudo"
 import { baseApiUrl, userKey} from '@/global.js'
 import axios from 'axios'
 
 export default {
     name: "App",
-    components: {Menu, Rodape, Conteudo},
+    components: {Menu, Conteudo},
     computed: mapState(['user']),
     data: function() {
         return {
