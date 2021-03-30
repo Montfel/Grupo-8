@@ -12,7 +12,7 @@
                 <b-input id="input-cid" placeholder=""
                 type="number" min="0"></b-input>
         <br>
-        <label for="input-data-nascimento">Data do Exame:</label>
+        <label for="input-data-exame">Data do Exame:</label>
                 <b-input id="input-data-exame" placeholder="Informe a data do exame" type="date"></b-input>
                 <br>
         <label for="input-tipo">Tipo Solicitante:</label>
