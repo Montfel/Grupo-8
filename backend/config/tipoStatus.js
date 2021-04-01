@@ -10,7 +10,7 @@ module.exports = app => {
     }
 
     const registrarStatus = async () => {
-        const tipoStatus = ['Provisório', 'Definitivo', 'Expirado', 'Finalizado']
+        const tipoStatus = ['Pendente', 'Em análise', 'Expirado', 'Finalizado']
 
         if (!await existeStatus()) {
 
