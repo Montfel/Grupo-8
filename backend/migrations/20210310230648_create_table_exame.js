@@ -2,8 +2,8 @@
 exports.up = function(knex) {
     return knex.schema.createTable('exame', table => {
         table.increments('id').primary()
-        table.date('data_solicitada').notNull()
-        table.date('data_prevista')
+        table.date('data_exame').notNull()
+        // table.date('data_prevista')
         table.date('data_realizada')
         table.string('hipotese')
         table.string('recomendacoes')
