@@ -147,11 +147,6 @@ export default {
         scroll-behavior: smooth;
     }
 
-    body {
-        background: url(../../assets/footer-bg.png) no-repeat center bottom;
-        padding-bottom: 400px;
-    }
-
     #servicos a.destaque {
         display: block;
         background: var(--light);
