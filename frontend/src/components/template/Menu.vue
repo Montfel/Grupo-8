@@ -31,17 +31,16 @@
 
 <script>
 import { userKey } from '@/global'
+import { mapState } from 'vuex'
 
 export default {
     name: "Menu",
-    props: {
-        user: Boolean
-    },
+    computed: mapState(['user']),
     methods: {
         logout() {
             localStorage.removeItem(userKey)
             this.$store.commit('setUser', null)
-            this.$router.push({ name: 'Autenticacao' })
+            this.$router.push({ name: 'Home' })
         }
     }
 

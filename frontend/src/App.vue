@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <Menu :login="user"/>
+        <Menu />
         <Conteudo />
     </div>
 </template>
@@ -18,10 +18,10 @@ export default {
     computed: mapState(['user']),
     data: function() {
         return {
-            validandoToken: true
+            validandoToken: true,
         }
-    }, methods: {
-
+    }, 
+    methods: {
         async validarToken() {
             this.validandoToken = true
 
@@ -31,7 +31,11 @@ export default {
 
             if (!userData) {
                 this.validatingToken = false
-                return this.$router.push({ name: 'Autenticacao' })
+                if (window.location.pathname != "/") {
+                    return this.$router.push({ name: 'Home' })
+                }
+
+                return
             }
 
             const res = await axios.post(`${baseApiUrl}/validateToken`, userData)
@@ -40,15 +44,16 @@ export default {
                 this.$store.commit('setUser', userData)
             } else {
                 localStorage.removeItem(userKey)
-                this.$router.push({ name: 'Autenticacao' })
+                this.$router.push({ name: 'Home' })
             }
 
             this.validatingToken = false
-        }, 
-        created() {
-            this.validateToken()
         }
+    },
+    created() {
+            this.validarToken()
     }
+    
 }
 
 </script>
