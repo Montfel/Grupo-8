@@ -66,7 +66,7 @@ module.exports = app => {
                 removerMedico(req, res)
 
             } else if (isPaciente(req.params.tipo)) {
-                // remover paciente
+                removerPaciente(req, res)
 
             } else if (isUsuario(req.params.tipo)) {
                 const usuario_ = new Pessoa()
