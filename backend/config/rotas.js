@@ -17,5 +17,8 @@ module.exports = app => {
     app.route('/medicos/:tipo')
         .get(app.api.medico.listarMedicos)
 
+    app.route('/exame')
+        .post(app.api.exame.salvarExame)
+
     
 }

@@ -15,6 +15,7 @@ consign()
     .then('./classes/professor.js')
     .then('./classes/paciente.js')
     .then('./classes/residente.js')
+    .then('./classes/exame.js')
 
     .then('./api/professor.js')
     .then('./api/residente.js')
