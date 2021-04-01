@@ -22,5 +22,22 @@ module.exports = app => {
         res.status(204).send()
     }
 
-    return { salvarPaciente }
+    const removerPaciente = async(req, res) => {
+        try{
+            const paciente_ = new Paciente()
+            paciente_.remover(req.parms.id_pessoa)
+
+            res.status(204).send()
+        }catch(msg){
+            res.status(400).send("Não foi possível remover paciente!")
+        }
+    }
+
+    const listarPaciente = (req, res) => {
+        app.db('paciente')
+            .then(paciente => res.json(paciente))
+            .catch(err => res.status(500).send(err))
+    }
+
+    return { salvarPaciente, removerPaciente, listarPaciente }
 }
