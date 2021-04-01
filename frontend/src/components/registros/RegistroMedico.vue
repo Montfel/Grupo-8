@@ -28,7 +28,7 @@
             
             <label v-if="medico.tipo_medico === 'residente'" for="input-residencia">Insira a data do começo de sua residência:</label>
             <b-input v-if="medico.tipo_medico === 'residente'" id="input-residencia" placeholder="Anos de residência"
-            type="date" v-model="medico.ano_residencia"></b-input>
+            type="date" v-model="medico.ano_residencia_inicio"></b-input>
             <br v-if="medico.tipo_medico === 'Residente'">
 
             <label for="input-senha">Senha:</label>
