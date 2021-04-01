@@ -45,24 +45,24 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="card col-md-6">
-            <h2 class="mx-auto mt-3">Cadastro de Exame</h2>
+            <h2 class="text-center mt-3">Cadastro de Exame</h2>
             <div class="card-body">
                 <fieldset class="grupo">
-                    <div class="campo mt-3">
-                        <label for="nome"><strong>CPF do paciente</strong></label>
-                        <input type="text" class="form-control" name="nome" id="nome" required>
+                    <div class="mt-3">
+                        <label for="cpf"><strong>CPF do paciente</strong></label>
+                        <input type="text" class="form-control" name="cpf" id="cpf" required>
                     </div>
                 </fieldset> 
-                <div class="campo mt-3">
+                <div class="mt-3">
                     <label for="nome"><strong>Hipótese(Base na CID)</strong></label>
                     <input type="text" class="form-control" name="nome" id="nome" required>
                 </div>
     
-                <div class="campo mt-3">
-                    <label for="date"><strong>Data do Exame</strong></label>
+                <div class="mt-3">
+                    <label for="date"><strong>Data prevista do Exame</strong></label>
                     <input type="date" class="form-control" name="date" id="date">
                 </div>
-                <div class="campo mt-3">
+                <div class="mt-3">
                     <label><strong>Tipo Solicitante</strong></label>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="solicitar" id="radios1" value="medprofissional" checked>
@@ -77,7 +77,7 @@
                         </label>
                       </div>
                 </div>
-                <div class="form-group campo mt-3">
+                <div class="form-group mt-3">
                     <label for="tipoExame"><strong>Tipo do Exame</strong></label>
                     <select id="tipoExame" class="form-control" required>
                       <option selected disabled value="">Selecione</option>
@@ -87,11 +87,11 @@
                       <option>Holter</option>
                     </select>
                 </div>
-                <div class="form-group campo">
+                <div class="form-group">
                     <label for="experiencia"><strong>Recomendações: </strong></label>
                     <textarea class="form-control" rows="5" id="experiencia" name="experiencia"></textarea>
                 </div>
-                <button type="submit" class="btn rounded-pill btn-block" id="button">CONCLUÍDO</button>   
+                <button type="submit" class="btn rounded-pill btn-block" id="button"><strong>CONCLUÍDO</strong></button>   
           </div>
           </div>
         </div>

@@ -16,15 +16,16 @@ html, body {
 
 #button{
     background-color: #F2465D;
+    color:white;
 }
 
 .card{
     box-shadow: 1px 5px 30px rgb(195, 195, 195);
 }
 
-#button:hover{
-    color: white;
-}
+/* #button:hover{
+    color: rgb(52, 13, 224);
+} */
 
 textarea{
     resize: none;

@@ -3,7 +3,9 @@
         <div>
             <b-navbar toggleable="lg" type="dark" variant="info" id="navbar">
                 <b-navbar-brand href="#">
-                    <img src="../../assets/logo.png" width="60px" alt="logo" id="brand">
+                    <router-link to="/">
+                         <img src="../../assets/logo.png" width="60px" alt="logo" id="brand">
+                    </router-link>
                 </b-navbar-brand>
 
                 <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
