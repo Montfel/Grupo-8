@@ -2,8 +2,8 @@ module.exports = app => {
     const { existsOrError, notExistsOrError } = app.api.validacao
 
     const { Medico } = app.classes.medico
-    const { salvarResidente } = app.api.residente
-    const { salvarProfessor } = app.api.professor
+    const { salvarResidente, removerResidente, listarResidente } = app.api.residente
+    const { salvarProfessor, removerProfessor, listarProfessor } = app.api.professor
 
     const salvarMedico = async(req, res) => {
 
@@ -49,8 +49,44 @@ module.exports = app => {
 
     }
 
+    const removerMedico = async(req, res) => {
+        try {
+            const medico_ = new Medico()
 
+            const crm = await medico_.getCRM(req.params.id_pessoa)
 
+            if (await medico_.isResidente(crm)) {
+                removerResidente(req, res)
+    
+            } else if (await medico_.isProfessor(crm)) {
+                removerProfessor(req, res)
+
+            } else if (isProfissional(req.param.tipo)){
+                medico_.remover(req.params.id_pessoa)
+    
+                res.status(204).send()
+            }
+
+        } catch (msg) {
+            res.status(400).send('Não foi possível remover medico!')
+
+        }
+    }
+
+    const listarMedicos = (req, res) => {
+        if (isResidente(req.params.tipo)) {
+            listarResidente(req, res)
+
+        } else if (isProfessor(req.params.tipo)) {
+            listarProfessor(req, res)
+
+        } else if (isProfissional(req.params.tipo)) {
+            app.db('medico')
+                .then(medicos => res.json(medicos))
+                .catch(err => res.status(500).send(err))
+        }
+
+    }
 
     // -------- Funções ----------------
 
@@ -75,5 +111,6 @@ module.exports = app => {
         return false
     }
 
-    return { salvarMedico }
+
+    return { salvarMedico, removerMedico, listarMedicos }
 }

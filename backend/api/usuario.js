@@ -4,7 +4,7 @@ module.exports = app => {
     const { existsOrError, notExistsOrError, equalsOrError } = app.api.validacao
 
     const { Pessoa } = app.classes.pessoa
-    const { salvarMedico } = app.api.medico
+    const { salvarMedico, removerMedico } = app.api.medico
     const { salvarPaciente } = app.api.paciente
 
     const encriptarSenha = senha => {
@@ -59,6 +59,56 @@ module.exports = app => {
         }
     }
 
+    const remover = async(req, res) => {
+
+        try {
+            if (isMedico(req.params.tipo)) {
+                removerMedico(req, res)
+
+            } else if (isPaciente(req.params.tipo)) {
+                // remover paciente
+
+            } else if (isUsuario(req.params.tipo)) {
+                const usuario_ = new Pessoa()
+                usuario_.remover(req.params.id_pessoa)
+
+                res.status(204).send()
+            }
+
+        } catch (msg) {
+            res.status(400).send(msg)
+        }
+
+    }
+    
+    const listar = (req, res) => {
+        app.db('pessoa')
+            .then(usuarios => res.json(usuarios))
+            .catch(err => res.status(500).send(err))
+    }
+
+    const atualizar = (req, res) => {
+        const usuario = { ...req.body}
+
+        if (usuario.senha) {
+            try {
+                existsOrError(usuario.confirmacaoSenha, "Confirmação de senha não informada!")
+                equalsOrError(usuario.senha, usuario.confirmacaoSenha, "Senhas não conferem!")
+                
+            } catch (msg) {
+                return res.status(400).send(msg)
+            }
+
+            usuario.senha = encriptarSenha(usuario.senha)
+            delete usuario.confirmacaoSenha
+        }
+
+        app.db('pessoa')
+            .update(usuario)
+            .where({id_pessoa: req.params.id_pessoa})
+            .then(_=> res.status(204).send())
+            .catch(err => res.status(500).send(err))
+    }
 
 
     // ----------- Funções ---------------
@@ -85,5 +135,5 @@ module.exports = app => {
     }
     
 
-    return { salvar }
+    return { salvar, remover, listar, atualizar }
 }

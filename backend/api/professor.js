@@ -20,7 +20,24 @@ module.exports = app => {
         res.status(204).send()
         
     }
+    const removerProfessor = async (req, res) => {
+        try {
+            const professor_ = new Professor()
+            professor_.remover(req.params.id_pessoa)
 
-    return { salvarProfessor }
+            res.status(204).send()
+
+        } catch (msg) {
+            res.status(400).send('Não foi possível remover Professor!')
+        }
+    }
+
+    const listarProfessor = (req, res) => {
+        app.db('professor')
+            .then(professor => res.json(professor))
+            .catch(err => res.status(500).send(err))
+    }
+
+    return { salvarProfessor, removerProfessor, listarProfessor }
 
 }

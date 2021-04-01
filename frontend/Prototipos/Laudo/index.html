@@ -41,38 +41,50 @@
       <div class="container py-5">
         <div class="row">
           <div class="col-md-3"></div>
-          <div class="card col-md-6">
-            <div class="card-header text-center">
-              <h2>Laudo</h2>
-            </div>
-            <div class="card-body">
+          <div class="card col-md-6 shadow rounded">
+            <h2 class="text-center">Laudo</h2>
+            <div class="card-body font-weight-bold">
               <form>
                 <div class="form-group">
-                  <label for="InputCRM">CRM</label>
-                  <input type="text" class="form-control" id="InputCRM" placeholder="Informe seu CRM">
+                  <label for="InputCRM">CRM do médico</label>
+                  <input type="text" class="form-control" id="InputCRM" value="2353646-64" required disabled>
                 </div>
                 <div class="form-group">
                   <label for="InputCPF">CPF do paciente</label>
-                  <input type="text" class="form-control" id="InputCPF" placeholder="Insira o CPF do paciente">
+                  <input type="text" class="form-control" id="InputCPF" placeholder="Insira o CPF do paciente" required>
                 </div>
                 <div class="form-group">
-                  <label for="InputDate">Data do exame</label>
-                  <input type="date" class="form-control" id="InputDate">
-                </div> 
+                  <label for="InputExame">Tipo de exame</label>
+                  <select class="form-control" id="InputExame">
+                    <option>Selecione um opção</option>
+                    <option>Eletrocardiograma</option>
+                    <option>Holter</option>
+                    <option>EcoCardiograma</option>
+                    <option>Mapa</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="InputDate">Data do exame</label>
+                    <input type="date" class="form-control" id="InputDate" required>
+                  </div> 
+                  <div class="form-group col-md-6">
+                    <label for="InputDate">Hora do exame</label>
+                    <input type="time" class="form-control" id="InputDate" required>
+                  </div> 
+                </div>
                 <div class="form-group">
                   <label for="InputLaudo">Laudo</label>
-                  <textarea class="form-control" id="InputLaudo" placeholder="Informe o laudo do paciente" rows="3"></textarea>
+                  <textarea class="form-control" id="InputLaudo" placeholder="Informe o laudo do paciente" rows="3" required></textarea>
                 </div>
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFile" lang="es">
-                  <label class="custom-file-label" for="customFile">Anexe o PDF</label>
+                  <input type="file" class="custom-file-input" id="customFile" lang="en" required>
+                  <label class="custom-file-label" for="customFile">Anexar PDF</label>
                 </div>
-                <br><br>
-                <button type="submit" class="btn rounded-pill btn-block text-light" id="button">ENVIAR</button>
+                <button type="submit" class="btn btn-danger rounded-pill btn-block text-light mt-4" id="button">ENVIAR</button>
               </form>
             </div>
           </div>
-          <div class="col-md-3"></div>
         </div>
       </div>
     </main>
@@ -87,10 +99,10 @@
       
           <div class="col-md-4">
             <p class="mb-0 text-center">Av. Mario Jorge Menezes Viêira, 2477</p>
-            <p class="mb-0 text-center">Coroa do Meio, Aracaju - SE, 49035-100</p> 
+            <p class="text-center">Coroa do Meio, Aracaju - SE, 49035-100</p> 
           </div>
           <div class="col-md-1">
-            <a href="#"><img class="d-flex justify-content-center" id="logo" src="img/logorodada.png" alt="Logotipo"></a>
+            <a href="#"><img class="d-flex justify-content-center mx-auto" id="logo" src="img/logorodada.png" alt="Logotipo"></a>
           </div>
         </div>
       </div>
