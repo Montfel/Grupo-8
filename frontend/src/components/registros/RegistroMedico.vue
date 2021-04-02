@@ -106,4 +106,12 @@ export default {
     .btn-register {
         margin-top: 20px;
     }
+
+    label {
+        font-weight: bold;
+    }
+
+    .btn-register {
+        font-weight: bold;
+    }
 </style>
