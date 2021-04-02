@@ -40,7 +40,11 @@ export default {
         logout() {
             localStorage.removeItem(userKey)
             this.$store.commit('setUser', null)
-            this.$router.push({ name: 'Home' })
+
+            if (window.location.pathname != "/") {
+                this.$router.push({ name: 'Home' })
+            }
+
         }
     }
 
