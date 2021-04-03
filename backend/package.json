@@ -6,21 +6,19 @@
   "scripts": {
     "start": "nodemon",
     "production": "pm2 start index.js --name unicardio-backend",
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
-    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test": "./node_modules/.bin/mocha test/**/*.spec.js",
+    "test:tdd": "./node_modules/.bin/mocha test/**/*.spec.js --watch",
     "test:coverage": "nyc npm test"
   },
-
   "nyc": {
     "reporter": [
       "text",
       "html"
     ],
     "excludes": [
-      "test/**"
+      "tests/**"
     ]
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -44,10 +42,12 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "eslint": "^7.23.0",
     "eslint-plugin-vue": "^7.8.0",
     "mocha": "^8.3.2",
     "nodemon": "2.0.7",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "supertest": "^6.1.3"
   }
 }
