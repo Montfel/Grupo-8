@@ -8,8 +8,5 @@ describe('Classe Exame', () =>{
         it('Exame existe no projeto', ()=>{
             expect(Exame).to.exist
         })
-
-        it
-        
     })
 })
