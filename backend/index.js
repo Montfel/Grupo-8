@@ -21,7 +21,7 @@ consign()
     .then('./api/residente.js')
     .then('./api/medico.js')
     .then('./api/paciente.js')
-    .then('./test')
+
     
     .then('./api')
     .then('./config/rotas.js')
