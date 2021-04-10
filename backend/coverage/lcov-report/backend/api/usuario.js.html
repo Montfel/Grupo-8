@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for backend/api/usuario.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">backend/api</a> usuario.js
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const bcrypt = require('bcrypt-nodejs')
+module.exports = app =&gt; {
+&nbsp;
+    const { existsOrError, notExistsOrError, equalsOrError } = app.api.validacao
+&nbsp;
+    const { Pessoa } = app.classes.pessoa
+    const { salvarMedico, removerMedico } = app.api.medico
+    const { salvarPaciente } = app.api.paciente
+&nbsp;
+    const encriptarSenha = senha =&gt; {
+        const salt = bcrypt.genSaltSync(10)
+        
+        return bcrypt.hashSync(senha, salt) 
+    }
+&nbsp;
+    const salvar = async(req, res) =&gt; {
+&nbsp;
+        const usuario = { ...req.body}
+&nbsp;
+        try{
+            
+            existsOrError(usuario.cpf, "CPF não informado!")
+            existsOrError(usuario.nome, "Nome não informado!")
+            existsOrError(usuario.senha, "Senha não informada!")
+            existsOrError(usuario.confirmacaoSenha, "Confirmação de senha não informada!")
+            equalsOrError(usuario.senha, usuario.confirmacaoSenha, "Senhas não conferem!")
+        
+            const usuarioFromDB = await app.db("pessoa") 
+                .where({cpf: usuario.cpf}).first()
+&nbsp;
+            notExistsOrError(usuarioFromDB, "Usuário já cadastrado!") 
+&nbsp;
+        } catch (msg) {
+            return res.status(400).send(msg)
+        }
+        
+        usuario.senha = encriptarSenha(usuario.senha)
+        delete usuario.confirmacaoSenha 
+        
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(!isUsuario(req.params.tipo)) {
+<span class="cstat-no" title="statement not covered" >            delete usuario.adm</span>
+        }
+&nbsp;
+        req.body = usuario
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (isMedico(req.params.tipo)) {
+<span class="cstat-no" title="statement not covered" >            salvarMedico(req, res)</span>
+            
+        } else <span class="missing-if-branch" title="if path not taken" >I</span>if (isPaciente(req.params.tipo)){
+<span class="cstat-no" title="statement not covered" >            salvarPaciente(req, res)</span>
+&nbsp;
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (isUsuario(req.params.tipo)) {
+&nbsp;
+            const usuario_ = new Pessoa(usuario.cpf, usuario.nome, usuario.senha, usuario.adm)
+&nbsp;
+            usuario_.salvarDados()
+&nbsp;
+            res.status(204).send()
+        }
+    }
+&nbsp;
+    const remover = async(req, res) =&gt; {
+&nbsp;
+        try {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (isMedico(req.params.tipo)) {
+<span class="cstat-no" title="statement not covered" >                removerMedico(req, res)</span>
+&nbsp;
+            } else <span class="missing-if-branch" title="if path not taken" >I</span>if (isPaciente(req.params.tipo)) {
+<span class="cstat-no" title="statement not covered" >                removerPaciente(req, res)</span>
+&nbsp;
+            } else <span class="missing-if-branch" title="else path not taken" >E</span>if (isUsuario(req.params.tipo)) {
+                const usuario_ = new Pessoa()
+                usuario_.remover(req.params.id_pessoa)
+&nbsp;
+                res.status(204).send()
+            }
+&nbsp;
+        } catch (msg) {
+<span class="cstat-no" title="statement not covered" >            res.status(400).send(msg)</span>
+        }
+&nbsp;
+    }
+    
+    const listar = (req, res) =&gt; {
+        app.db('pessoa')
+            .then(usuarios =&gt; res.json(usuarios))
+            .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >res.status(500).send(err))</span>
+    }
+&nbsp;
+    const atualizar = (req, res) =&gt; {
+        const usuario = { ...req.body}
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (usuario.senha) {
+<span class="cstat-no" title="statement not covered" >            try {</span>
+<span class="cstat-no" title="statement not covered" >                existsOrError(usuario.confirmacaoSenha, "Confirmação de senha não informada!")</span>
+<span class="cstat-no" title="statement not covered" >                equalsOrError(usuario.senha, usuario.confirmacaoSenha, "Senhas não conferem!")</span>
+                
+            } catch (msg) {
+<span class="cstat-no" title="statement not covered" >                return res.status(400).send(msg)</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            usuario.senha = encriptarSenha(usuario.senha)</span>
+<span class="cstat-no" title="statement not covered" >            delete usuario.confirmacaoSenha</span>
+        }
+&nbsp;
+        app.db('pessoa')
+            .update(usuario)
+            .where({id_pessoa: req.params.id_pessoa})
+            .then(_=&gt; res.status(204).send())
+            .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >res.status(500).send(err))</span>
+    }
+&nbsp;
+&nbsp;
+    // ----------- Funções ---------------
+&nbsp;
+    function isMedico(tipo) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (tipo === 'medico') {
+<span class="cstat-no" title="statement not covered" >            return true</span>
+        }
+        return false
+    }
+&nbsp;
+    function isPaciente(tipo) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (tipo === 'paciente') {
+<span class="cstat-no" title="statement not covered" >            return true</span>
+        }
+        return false
+    }
+&nbsp;
+    function isUsuario(tipo) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (tipo === 'usuario') {
+            return true
+        }
+<span class="cstat-no" title="statement not covered" >        return false</span>
+    }
+    
+&nbsp;
+    return { salvar, remover, listar, atualizar }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Apr 10 2021 16:46:26 GMT-0300 (Horário Padrão de Brasília)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>

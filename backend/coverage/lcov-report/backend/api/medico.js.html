@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for backend/api/medico.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\index.html">All files</a> / <a href="index.html">backend/api</a> medico.js
+    </h1>
+    <div class='clearfix'>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">module.exports = app =&gt; {
+    const { existsOrError, notExistsOrError } = app.api.validacao
+&nbsp;
+    const { Medico } = app.classes.medico
+    const { salvarResidente, removerResidente, listarResidente } = app.api.residente
+    const { salvarProfessor, removerProfessor, listarProfessor } = app.api.professor
+&nbsp;
+    const salvarMedico = <span class="fstat-no" title="function not covered" >as</span>ync(req, res) =&gt; {
+&nbsp;
+        const medico = <span class="cstat-no" title="statement not covered" >{ ...req.body }</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >            existsOrError(medico.crm, "CRM não informado!")</span>
+                
+<span class="cstat-no" title="statement not covered" >            if (isResidente(medico.tipo_medico)) {</span>
+<span class="cstat-no" title="statement not covered" >                existsOrError(medico.ano_residencia, "Ano de residência não informado!")  </span>
+&nbsp;
+            } else <span class="cstat-no" title="statement not covered" >if (isProfessor(medico.tipo_medico)) {</span>
+<span class="cstat-no" title="statement not covered" >                existsOrError(medico.titulacao, "Titulação não informada!")  </span>
+            }
+&nbsp;
+            const medicosFromDB = <span class="cstat-no" title="statement not covered" >await app.db('medico')</span>
+                .where({crm: medico.crm})
+                .first()
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            notExistsOrError(medicosFromDB, "Médico já cadastrado!")</span>
+&nbsp;
+        } catch (msg) {
+<span class="cstat-no" title="statement not covered" >            return res.status(400).send(msg)</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (isResidente(medico.tipo_medico)) {</span>
+<span class="cstat-no" title="statement not covered" >            salvarResidente(req, res)</span>
+&nbsp;
+        } else <span class="cstat-no" title="statement not covered" >if (isProfessor(medico.tipo_medico)) {</span>
+<span class="cstat-no" title="statement not covered" >            salvarProfessor(req, res)</span>
+&nbsp;
+        } else <span class="cstat-no" title="statement not covered" >if (isProfissional(medico.tipo_medico)){</span>
+&nbsp;
+            const medico_ = <span class="cstat-no" title="statement not covered" >new Medico(medico.cpf, medico.nome, medico.senha, medico.crm)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            medico_.salvarDados()</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            res.status(204).send()</span>
+&nbsp;
+        } else {
+<span class="cstat-no" title="statement not covered" >            res.status(400).send('Não foi possível identificar o tipo do médico!')</span>
+        }
+&nbsp;
+    }
+&nbsp;
+    const removerMedico = <span class="fstat-no" title="function not covered" >as</span>ync(req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >        try {</span>
+            const medico_ = <span class="cstat-no" title="statement not covered" >new Medico()</span>
+&nbsp;
+            const crm = <span class="cstat-no" title="statement not covered" >await medico_.getCRM(req.params.id_pessoa)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (await medico_.isResidente(crm)) {</span>
+<span class="cstat-no" title="statement not covered" >                removerResidente(req, res)</span>
+    
+            } else <span class="cstat-no" title="statement not covered" >if (await medico_.isProfessor(crm)) {</span>
+<span class="cstat-no" title="statement not covered" >                removerProfessor(req, res)</span>
+&nbsp;
+            } else <span class="cstat-no" title="statement not covered" >if (isProfissional(req.param.tipo)){</span>
+<span class="cstat-no" title="statement not covered" >                medico_.remover(req.params.id_pessoa)</span>
+    
+<span class="cstat-no" title="statement not covered" >                res.status(204).send()</span>
+            }
+&nbsp;
+        } catch (msg) {
+<span class="cstat-no" title="statement not covered" >            res.status(400).send('Não foi possível remover medico!')</span>
+&nbsp;
+        }
+    }
+&nbsp;
+    const listarMedicos = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >        if (isResidente(req.params.tipo)) {</span>
+<span class="cstat-no" title="statement not covered" >            listarResidente(req, res)</span>
+&nbsp;
+        } else <span class="cstat-no" title="statement not covered" >if (isProfessor(req.params.tipo)) {</span>
+<span class="cstat-no" title="statement not covered" >            listarProfessor(req, res)</span>
+&nbsp;
+        } else <span class="cstat-no" title="statement not covered" >if (isProfissional(req.params.tipo)) {</span>
+<span class="cstat-no" title="statement not covered" >            app.db('medico')</span>
+                .then(<span class="fstat-no" title="function not covered" >me</span>dicos =&gt; <span class="cstat-no" title="statement not covered" >res.json(medicos))</span>
+                .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >res.status(500).send(err))</span>
+        }
+&nbsp;
+    }
+&nbsp;
+    // -------- Funções ----------------
+&nbsp;
+    function <span class="fstat-no" title="function not covered" >isResidente(</span>tipo) {
+<span class="cstat-no" title="statement not covered" >        if (tipo === 'residente') {</span>
+<span class="cstat-no" title="statement not covered" >            return true</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return false</span>
+    }
+&nbsp;
+    function <span class="fstat-no" title="function not covered" >isProfessor(</span>tipo) {
+<span class="cstat-no" title="statement not covered" >        if (tipo === 'professor') {</span>
+<span class="cstat-no" title="statement not covered" >            return true</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return false</span>
+    }
+&nbsp;
+    function <span class="fstat-no" title="function not covered" >isProfissional(</span>tipo) {
+<span class="cstat-no" title="statement not covered" >        if (tipo === 'profissional') {</span>
+<span class="cstat-no" title="statement not covered" >            return true</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return false</span>
+    }
+&nbsp;
+&nbsp;
+    return { salvarMedico, removerMedico, listarMedicos }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Apr 10 2021 16:46:26 GMT-0300 (Horário Padrão de Brasília)
+</div>
+</div>
+<script src="..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\sorter.js"></script>
+</body>
+</html>
