@@ -7,6 +7,7 @@ import RegistroPaciente from "@/components/registros/RegistroPaciente"
 import SolicitarExame from "@/components/registros/SolicitarExame"
 import EnvioLaudo from "@/components/registros/EnvioLaudo"
 import Home from "@/components/home/Home"
+import dashboard from "@/components/dashboard/dashboard"
 
 import { userKey } from '@/global'
 
@@ -40,6 +41,10 @@ const rotas = [
     path: '/registros/laudo',
     component: EnvioLaudo,
     meta: { requiresAdmin: true }
+},{
+    name: 'Dashboard',
+    path: '/registros/dashboard',
+    component: dashboard,
 }]
 
 const router = new VueRouter({
