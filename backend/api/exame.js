@@ -11,15 +11,15 @@ module.exports = app => {
             existsOrError(exame.data, 'Data do exame não informado!')
             existsOrError(exame.tipoExame, 'Tipo do exame não informado!')
 
-            // Temporário
-            existsOrError(exame.crm, 'CRM do médico não informado!')
-            existsOrError(exame.tipoMedico, 'Tipo do médico não informado!')
+            // // Temporário
+            // existsOrError(exame.crm, 'CRM do médico não informado!')
+            // existsOrError(exame.tipoMedico, 'Tipo do médico não informado!')
             
         } catch (msg) {
             return res.status(400).send(msg)
         }
 
-        const exame_ = new Exame(exame.crm, exame.cpf, exame.hipotese, exame.data, exame.tipoMedico, exame.tipoExame, exame.recomendacoes)
+        const exame_ = new Exame(exame.cpf, exame.hipotese, exame.data, exame.tipoMedico, exame.tipoExame, exame.recomendacoes)
 
         exame_.salvarExame(res)
 
