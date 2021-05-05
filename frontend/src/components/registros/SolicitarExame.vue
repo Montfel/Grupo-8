@@ -7,23 +7,25 @@
         <br>
         <label for="input-cpf">CPF:</label>
         <b-input id="input-cpf" placeholder="Informe o CPF do paciente"
-        type="number" min="0"></b-input>
+        type="number" min="0" v-model="exame.cpf"></b-input>
         <br>
 
         <label for="input-cid">Hipótese(Base no CID):</label>
-        <b-form-select id="input-cid" :option="cid"></b-form-select>
+        <b-form-select id="input-cid" :options="cid" v-model="exame.hipotese"></b-form-select>
         <br><br>
 
         <label for="input-data-exame">Data do Exame:</label>
-        <b-input id="input-data-exame" placeholder="Informe a data do exame" type="date"></b-input>
+        <b-input id="input-data-exame" placeholder="Informe a data do exame" type="date"
+            v-model="exame.data"></b-input>
         <br>
 
         <label for="input-tipo">Tipo Solicitante:</label>
-        <b-form-select id="input-tipo-solicitante" :options="tipos"></b-form-select>
+        <b-form-select id="input-tipo-solicitante" :options="tipos"
+            v-model="exame.tipoMedico"></b-form-select>
         <br><br>
 
         <label for="input-tipo">Tipo de Exame:</label>
-        <b-form-select id="input-tipo-exame" :options="tiposExame"></b-form-select>
+        <b-form-select id="input-tipo-exame" :options="tiposExame" v-model="exame.tipoExame"></b-form-select>
         <br><br>
 
         <label for="input-recomendacoes">Recomendações:</label>
@@ -31,20 +33,26 @@
             id="input-recomendacoes"
             rows="3"
             no-resize
+            v-model="exame.recomendacoes"
         ></b-form-textarea>
 
-        <b-button pill block variant="danger" @click="registrar_paciente()" class="btn-register">Confirmar Exame</b-button>
+        <b-button pill block variant="danger" @click="salvarExame()" 
+            class="btn-register">Confirmar Exame</b-button>
 
       </div>  
   </div>
 </template>
 
 <script>
+import { baseApiUrl, showError} from '@/global.js'
 import axios from 'axios'
+import cidJSON from '../../assets/cid/cid.json'
 
 export default {
     data:function(){
         return{
+            exame: {},
+
             tipos:[
                 {value: 'profissional', text: 'Profissional'},
                 {value: 'professor', text: 'Professor'},
@@ -59,20 +67,31 @@ export default {
         }
     },
     methods: {
-        async getCid() {
-            const url = 'https://cid10-api.herokuapp.com/cid10'
-            axios.get(url).then(res => {
-                this.cid = res.data.map(d => {
-                    const s = d.nome
-                    return { value: 1, text: s}
+        salvarExame() {
+           const url = `${baseApiUrl}/exame`;
+
+           axios.post(url, this.exame)
+                .then(() => {
+                    this.$toasted.global.defaultSuccess()
+                    this.reset()
                 })
+                .catch(showError)
+        },
+
+        async getCid() {
+            this.cid = cidJSON.map(data => {
+                return { value: data.codigo, text: data.nome}
             })
 
+        },
+
+        reset() {
+            this.exame = {};
         }
 
     },
     mounted() {
-        // this.getCid()
+        this.getCid()
     }
 }
 </script>

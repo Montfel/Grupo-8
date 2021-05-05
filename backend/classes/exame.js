@@ -1,12 +1,11 @@
 module.exports = app => {
     class Exame {
 
-        constructor(crm, cpf, hipotese, data, tipoMedico, tipoExame, recomendacoes){
-            this.crm = crm
+        constructor(cpf, hipotese, data, tipoMedico, tipoExame, recomendacoes){
             this.cpf = cpf
             this.hipotese = hipotese
             this.data = data
-            this.tipoMedico = tipoMedico // Verificar uso dessa variável
+            this.tipoMedico = tipoMedico
             this.tipoExame = tipoExame
             this.recomendacoes = recomendacoes
         }
@@ -25,21 +24,31 @@ module.exports = app => {
             const exames = await app.db('exame')
                 .where({id_paciente: await this.getIdPaciente()})
 
-            let existe = true
-            existe = exames.some((obj) => {
-                if (obj.id_tipo_exame === this.tipoExame &&  
-                    obj.id_tipo_status == 1 || obj.id_tipo_status == 2) {
 
-                    return false
+            if (!exames.length) {
+                return true;
+                
+            } else {
+                const existe = exames.some((obj) => {
+                    if (obj.id_tipo_exame === this.tipoExame &&  
+                        obj.id_tipo_status == 1 || obj.id_tipo_status == 2) {
+                        
+                        return true
+                    }
+                });
+
+                if (existe) {
+                   return false
+
+                } else {
+                    return true
                 }
-            });
+            }
 
-            return existe
         }
 
         async getDadosExames() {
             const exame = {
-                crm: this.crm,
                 id_paciente: await this.getIdPaciente(),
                 hipotese: this.hipotese,
                 data_exame: this.data,
