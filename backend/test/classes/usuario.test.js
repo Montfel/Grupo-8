@@ -47,7 +47,7 @@ test("Deve retornar o nome do usuario",  async(done) => {
 
 test("Deve alterar Usuario com sucesso", async (done)=> {
 
-    return request(app).put('/usuario/55')
+    return request(app).put('/usuario/58')
     .send({
         nome: "Test Jest 2",
     })
@@ -119,7 +119,7 @@ test("Não deve inserir Usuario sem a Senha", async(done) => {
 
 test("Deve excluir usuario com sucesso", async(done) => {
 
-    return request(app).delete('/pessoa/usuario/55')
+    return request(app).delete('/pessoa/usuario/58')
         .then((res) =>{
             expect(res.status).toBe(204);
             done()
