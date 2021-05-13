@@ -43,7 +43,7 @@ const rotas = [
     meta: { requiresAdmin: true }
 },{
     name: 'Dashboard',
-    path: '/registros/dashboard',
+    path: '/dashboard',
     component: dashboard,
 }]
 
