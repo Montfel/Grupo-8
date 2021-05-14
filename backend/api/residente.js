@@ -7,13 +7,13 @@ module.exports = app => {
         const residente = { ...req.body }
 
         try {
-            existsOrError(residente.ano_residencia, "Ano de residência não informado!") 
+            existsOrError(residente.ano_residencia_inicio, "Ano de residência não informado!") 
 
         } catch (msg) {
             return res.status(400).send(msg)
         }
 
-        const residente_ = new Residente(residente.cpf, residente.nome, residente.senha, residente.crm, residente.ano_residencia)
+        const residente_ = new Residente(residente.cpf, residente.nome, residente.senha, residente.crm, residente.ano_residencia_inicio)
 
         residente_.salvarDados()
 
@@ -38,6 +38,13 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
-    return { salvarResidente, removerResidente, listarResidente }
+    const listarResidentePeloId = (req, res) => {
+        app.db('residente')
+            .where({ crm: req.params.id })
+            .then(residente => res.json(residente))
+            .catch(err => res.status(500).send(err))
+    }
+
+    return { salvarResidente, removerResidente, listarResidente, listarResidentePeloId }
 
 }

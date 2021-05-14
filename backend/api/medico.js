@@ -2,23 +2,34 @@ module.exports = app => {
     const { existsOrError, notExistsOrError } = app.api.validacao
 
     const { Medico } = app.classes.medico
-    const { salvarResidente, removerResidente, listarResidente } = app.api.residente
-    const { salvarProfessor, removerProfessor, listarProfessor } = app.api.professor
+    const { 
+        salvarResidente, 
+        removerResidente, 
+        listarResidente,
+        listarResidentePeloId 
+    } = app.api.residente
+
+    const { 
+        salvarProfessor, 
+        removerProfessor, 
+        listarProfessor, 
+        listarProfessorPeloId 
+
+    } = app.api.professor
 
     const salvarMedico = async(req, res) => {
-
         const medico = { ...req.body }
-
+        
         try {
             existsOrError(medico.crm, "CRM não informado!")
+            
+            // if (isResidente(medico.tipo_medico)) {
+            //     existsOrError(medico.ano_residencia, "Ano de residência não informado!")  
                 
-            if (isResidente(medico.tipo_medico)) {
-                existsOrError(medico.ano_residencia, "Ano de residência não informado!")  
-
-            } else if (isProfessor(medico.tipo_medico)) {
-                existsOrError(medico.titulacao, "Titulação não informada!")  
-            }
-
+            // } else if (isProfessor(medico.tipo_medico)) {
+            //     existsOrError(medico.titulacao, "Titulação não informada!")  
+            // }
+            
             const medicosFromDB = await app.db('medico')
                 .where({crm: medico.crm})
                 .first()
@@ -88,6 +99,21 @@ module.exports = app => {
 
     }
 
+    const listarMedicosPeloId = (req, res) => {
+        if (isResidente(req.params.tipo)) {
+            listarResidentePeloId(req, res)
+
+        } else if (isProfessor(req.params.tipo)) {
+            listarProfessorPeloId(req, res)
+
+        } else if (isProfissional(req.params.tipo)) {
+            app.db('medico')
+                .where({ id_pessoa: req.params.id })
+                .then(medicos => res.json(medicos))
+                .catch(err => res.status(500).send(err))
+        }
+    }
+
     // -------- Funções ----------------
 
     function isResidente(tipo) {
@@ -112,5 +138,5 @@ module.exports = app => {
     }
 
 
-    return { salvarMedico, removerMedico, listarMedicos }
+    return { salvarMedico, removerMedico, listarMedicos, listarMedicosPeloId }
 }

@@ -5,9 +5,9 @@ module.exports = app => {
 
     class Residente extends Medico{
 
-        constructor(cpf, nome, senha, crm, ano_residencia){
+        constructor(cpf, nome, senha, crm, ano_residencia_inicio){
             super(cpf, nome, senha, crm)
-            this.ano_residencia = ano_residencia
+            this.ano_residencia_inicio = ano_residencia_inicio
         }
 
         async salvarDados(){
@@ -26,7 +26,7 @@ module.exports = app => {
 
         async getDadosResidente(){
             const medico = {
-                ano_residencia: this.ano_residencia,
+                ano_residencia_inicio: this.ano_residencia_inicio,
                 crm: this.crm
             }
 

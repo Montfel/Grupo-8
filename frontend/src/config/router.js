@@ -9,7 +9,8 @@ import EnvioLaudo from "@/components/registros/EnvioLaudo"
 import Home from "@/components/home/Home"
 import dashboard from "@/components/dashboard/dashboard"
 
-import { userKey } from '@/global'
+
+import validacoes from './routerValidation';
 
 Vue.use(VueRouter)
 
@@ -25,22 +26,22 @@ const rotas = [
     name: 'Registro Medico',
     path: '/registros/medico',
     component: RegistroMedico,
-    meta: { requiresAdmin: true }
+    meta: { requiresAuth: true, requiresAdmin: true }
 },{
     name: 'Registro Paciente',
     path: '/registros/paciente',
     component: RegistroPaciente,
-    meta: { requiresAdmin: true }
+    meta: { requiresAuth: true, requiresMedOrAdmin: true }
 },{
     name: 'Cadastro Exame',
     path: '/registros/exame',
     component: SolicitarExame,
-    meta: { requiresAdmin: true }
+    meta: { requiresAuth: true, requiresMedOrProf: true}
 },{
     name: 'Envio do Laudo',
     path: '/registros/laudo',
     component: EnvioLaudo,
-    meta: { requiresAdmin: true }
+    meta: { requiresAuth: true, requiresResidente: true }
 },{
     name: 'Dashboard',
     path: '/dashboard',
@@ -52,15 +53,33 @@ const router = new VueRouter({
     routes: rotas
 })
 
-router.beforeEach((to, from, next) => {
-    const json = localStorage.getItem(userKey)
+router.beforeEach(async (to, from, next) => {
+    const metas = Object.keys(to.meta)
+    
+    if (to.matched.some(record => record.meta.requiresAuth)) {
 
-    if(to.matched.some(record => record.meta.requiresAdmin)) {
-        const user = JSON.parse(json)
-        user && user.adm ? next() : next({ path: '/login' })
+        let valido = false;
+        for (const key in metas) {
+            if (await validacoes[`validar_${metas[key]}`]()) {
+                valido = true;
+
+            } else {
+                valido = false;
+                break
+            }
+        }
+
+        if (valido) {
+            next()
+
+        } else {
+            next({path: '/'})
+        }
+        
     } else {
         next()
     }
 })
+
 
 export default router

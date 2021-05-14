@@ -9,8 +9,8 @@
 import { mapState } from 'vuex'
 import Menu from "@/components/template/Menu"
 import Conteudo from "@/components/template/Conteudo"
-import { baseApiUrl, userKey} from '@/global.js'
-import axios from 'axios'
+// import { baseApiUrl, userKey} from '@/global.js'
+// import axios from 'axios'
 
 export default {
     name: "App",
@@ -18,40 +18,40 @@ export default {
     computed: mapState(['user']),
     data: function() {
         return {
-            validandoToken: true,
+            // validandoToken: true,
         }
     }, 
     methods: {
-        async validarToken() {
-            this.validandoToken = true
+    //     async validarToken() {
+    //         this.validandoToken = true
 
-            const json = localStorage.getItem(userKey)
-            const userData = JSON.parse(json)
-            this.$store.commit('setUser', null)
+    //         const json = localStorage.getItem(userKey)
+    //         const userData = JSON.parse(json)
+    //         this.$store.commit('setUser', null)
 
-            if (!userData) {
-                this.validatingToken = false
-                if (window.location.pathname != "/") {
-                    return this.$router.push({ name: 'Home' })
-                }
+    //         if (!userData) {
+    //             this.validatingToken = false
+    //             if (window.location.pathname != "/") {
+    //                 return this.$router.push({ name: 'Home' })
+    //             }
 
-                return
-            }
+    //             return
+    //         }
 
-            const res = await axios.post(`${baseApiUrl}/validateToken`, userData)
+    //         const res = await axios.post(`${baseApiUrl}/validateToken`, userData)
 
-            if (res.data) {
-                this.$store.commit('setUser', userData)
-            } else {
-                localStorage.removeItem(userKey)
-                this.$router.push({ name: 'Home' })
-            }
+    //         if (res.data) {
+    //             this.$store.commit('setUser', userData)
+    //         } else {
+    //             localStorage.removeItem(userKey)
+    //             this.$router.push({ name: 'Home' })
+    //         }
 
-            this.validatingToken = false
-        }
-    },
-    created() {
-            this.validarToken()
+    //         this.validatingToken = false
+    //     }
+    // },
+    // created() {
+    //         this.validarToken()
     }
     
 }

@@ -38,6 +38,13 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
-    return { salvarProfessor, removerProfessor, listarProfessor }
+    const listarProfessorPeloId = (req, res) => {
+        app.db('professor')
+                .where({ crm: req.params.id })
+                .then(professor => res.json(professor))
+                .catch(err => res.status(500).send(err))
+    }
+
+    return { salvarProfessor, removerProfessor, listarProfessor, listarProfessorPeloId }
 
 }
