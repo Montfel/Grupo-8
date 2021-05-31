@@ -16,6 +16,7 @@ consign()
     .then('./classes/paciente.js')
     .then('./classes/residente.js')
     .then('./classes/exame.js')
+    .then('./classes/laudo.js')
 
     .then('./api/professor.js')
     .then('./api/residente.js')
@@ -25,6 +26,8 @@ consign()
     
     .then('./api')
     .then('./config/rotas.js')
+    .then('./config/tipoExame.js')
+    .then('./config/tipoStatus.js')
     .into(app)
 
 module.exports = app;

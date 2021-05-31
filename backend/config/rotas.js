@@ -1,3 +1,17 @@
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, '../frontend/src/assets/uploads/')
+    },
+
+    filename: function(req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
+
+const upload = multer({ storage: storage })
+
 module.exports = app => {
     app.post('/signin', app.api.autenticacao.signin)
     app.post('/validateToken', app.api.autenticacao.validateToken)
@@ -22,6 +36,9 @@ module.exports = app => {
 
     app.route('/exame')
         .post(app.api.exame.salvarExame)
+        
+    app.route('/laudo')
+        .post(upload.single('imagem'),app.api.laudo.salvarLaudo)
 
     
 }
