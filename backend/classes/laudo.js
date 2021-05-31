@@ -10,7 +10,7 @@ module.exports = app => {
 
         async salvarLaudo(res) {
             const exameExiste = await this.exameExiste()
-            if (exameExiste && exameExiste !== -1) {
+            if (exameExiste) {
                 await app.db('exame').update(await this.getDadosLaudo())
                 res.status(201).send()
 
