@@ -32,3 +32,12 @@
 5. Digite ```npm run test:tdd``` para execultar os testes em tempo real(Ele não sera finalizado automaticamente, rodando toda vez que você salvar um teste, sem precisar executar o camando de teste varias vezes).
 6. Digite ```npm run test:coverage``` para execultar os testes realizados e verificar a % de testes realizados dentro do projeto.
 ---
+
+### - Api - Documentação:
+ `{{BaseApiUrl}} = localhost:3000`
+ 
+- Administrador: https://documenter.getpostman.com/view/12212001/TzY1gvmK
+- Usuários: https://documenter.getpostman.com/view/12212001/TzY1gvqg
+- Médicos: https://documenter.getpostman.com/view/12212001/TzY1gvqe
+- Pacientes: https://documenter.getpostman.com/view/12212001/TzY1gvqf
+- Exames: https://documenter.getpostman.com/view/12212001/TzY1gvqd
