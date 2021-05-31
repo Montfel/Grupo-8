@@ -9,7 +9,8 @@ module.exports = app => {
         }
 
         async salvarLaudo(res) {
-            if (await this.exameExiste()) {
+            const exameExiste = await this.exameExiste()
+            if (exameExiste && exameExiste !== -1) {
                 await app.db('exame').update(await this.getDadosLaudo())
                 res.status(201).send()
 
@@ -48,7 +49,10 @@ module.exports = app => {
                 .select('id')
                 .where({id_paciente: await this.getIdPaciente(), id_tipo_status: 1})
                 .first()
-
+            
+            if (exameFromDB === undefined) {
+                return -1;
+            }
             return exameFromDB.id;
         }
 
