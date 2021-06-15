@@ -13,8 +13,12 @@
                 <b-collapse id="nav-collapse" is-nav>
                     <b-navbar-nav id="navbar-nav">
                         <b-nav-item href="#servicos" class="nav-item">SERVIÇOS</b-nav-item>
-                        <b-nav-item href="#" class="nav-item">CORPO CLÍNICO</b-nav-item>
-                        <b-nav-item href="#" class="nav-item">PACIENTES</b-nav-item>
+                        <b-nav-item to="/registros/medico" class="nav-item">
+                            CADASTRO DE MÉDICO
+                        </b-nav-item>
+                        <b-nav-item to="/registros/paciente" class="nav-item">
+                            CADASTRO DE PACIENTES
+                        </b-nav-item>
                         <b-nav-item href="#" class="nav-item">UNIDADES DE SAÚDE</b-nav-item>
                         <router-link v-if="!user" to="/login" class="nav-item" id="btn-login">
                             LOGIN

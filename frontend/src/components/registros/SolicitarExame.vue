@@ -37,7 +37,7 @@
         ></b-form-textarea>
 
         <b-button pill block variant="danger" @click="salvarExame()" 
-            class="btn-register">Confirmar Exame</b-button>
+            class="btn-register" id="solicitarExame">Confirmar Exame</b-button>
 
       </div>  
   </div>

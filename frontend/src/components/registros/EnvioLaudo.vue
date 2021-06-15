@@ -44,7 +44,8 @@
 
         <br>
 
-        <b-button pill block variant="danger" @click="registrar_laudo()" class="btn-register">Enviar laudo</b-button>
+        <b-button pill block variant="danger" @click="registrar_laudo()" class="btn-register"
+        id="envioLaudo">Enviar laudo</b-button>
 
       </div>  
   </div>

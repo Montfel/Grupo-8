@@ -39,7 +39,7 @@
             <b-input v-model="medico.confirmacaoSenha" id="input-confirma-senha" placeholder="Insira sua senha novamente" type="password"></b-input>
             <br>
 
-            <b-button pill block variant="danger" @click="registrar_medico()" class="btn-register">Registrar</b-button>
+            <b-button pill block variant="danger" @click="registrar_medico()" class="btn-register" id="registroMedico">Registrar</b-button>
         </div>
     </div>
 </template>

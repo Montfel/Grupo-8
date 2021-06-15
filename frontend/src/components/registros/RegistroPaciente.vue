@@ -34,7 +34,7 @@
             <b-input v-model="paciente.confirmacaoSenha" id="input-confirma-senha" placeholder="Insira sua senha novamente" type="password"></b-input>
             <br>
 
-            <b-button pill block variant="danger" @click="registrar_paciente()" class="btn-register">Registrar</b-button>
+            <b-button pill block variant="danger" @click="registrar_paciente()" class="btn-register" id="registroPaciente">Registrar</b-button>
 
         </div>
     </div>
