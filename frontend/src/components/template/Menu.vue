@@ -19,7 +19,8 @@
                         <b-nav-item to="/registros/paciente" class="nav-item">
                             CADASTRO DE PACIENTES
                         </b-nav-item>
-                        <b-nav-item href="#" class="nav-item">UNIDADES DE SAÚDE</b-nav-item>
+                        <b-nav-item to="/registros/exame" class="nav-item">EXAME</b-nav-item>
+                        <b-nav-item to="/registros/laudo" class="nav-item">LAUDO</b-nav-item>
                         <router-link v-if="!user" to="/login" class="nav-item" id="btn-login">
                             LOGIN
                         </router-link>

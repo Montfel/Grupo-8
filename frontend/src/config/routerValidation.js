@@ -14,8 +14,16 @@ const validacoes = {
     },
 
     async validar_requiresMedOrProf() {
-        if (await this.validar_medico() || await this.validar_medico('professor')) {
-            return true
+        if (await this.validar_medico()) {
+            const medico = await axios
+                .get(`${baseApiUrl}/medicos/profissional/${userData.id_pessoa}`)
+            
+            const res = await axios
+                .get(`${baseApiUrl}/medicos/professor/${medico.data[0].crm}`)
+
+            if (res.data.length) {
+                return true
+            }
         }
         return false;
     },
